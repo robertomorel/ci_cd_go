@@ -4,11 +4,11 @@
 
 name: ci-golang-workflow
 
-on: [push] # Everytime I run "git push"
-# on:
-#   pull_request:
-#     branches:
-#       - develop
+# on: [push] # Everytime I run "git push"
+on:
+  pull_request:
+    branches:
+      - develop
 
 jobs:
   check-application:

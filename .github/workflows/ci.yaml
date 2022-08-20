@@ -1,0 +1,16 @@
+name: ci-golang-workflow
+
+on: [push] # Everytime I run "git push"
+
+jobs:
+  check-application:
+    runs-on: ubuntu-latest # Will run in Ubunto
+    steps:
+      # Running github action -> github.com/actions/*
+      - uses: actions/checkout@v2 # to take all pushed data and download to this Ubuntu machine
+      - uses: actions/setup-go@v2 # to prepare Go env
+        with:
+          go-version: 1.15
+      # Running commands  
+      - run: go test
+      - run: go run math.go  

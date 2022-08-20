@@ -4,19 +4,20 @@
 
 name: ci-golang-workflow
 
-#on: [push] # Everytime I run "git push"
+on: [push] # Everytime I run "git push"
 on:
   pull_request:
     branches:
       - develop
 
-strategy:
-  matrix:
-    go: ["1.14", "1.15"]
-
 jobs:
   check-application:
     runs-on: ubuntu-latest # Will run in Ubunto
+
+    strategy:
+      matrix:
+        go: ["1.14", "1.15"]
+
     steps:
       # Running github action -> github.com/actions/*
       - uses: actions/checkout@v2 # to take all pushed data and download to this Ubuntu machine
